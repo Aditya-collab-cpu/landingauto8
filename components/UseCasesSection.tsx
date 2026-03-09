@@ -56,7 +56,7 @@ export default function UseCasesSection() {
     <section className="section-light py-24" id="use-cases">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate>
           <div className="inline-flex items-center gap-2 bg-[#0d1424]/5 border border-[#0d1424]/10 rounded-full px-4 py-1.5 mb-6">
             <span className="text-[#0d1424]/60 text-sm font-medium">
               Use Cases
@@ -74,11 +74,13 @@ export default function UseCasesSection() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {useCases.map((useCase) => {
+          {useCases.map((useCase, index) => {
             const Icon = useCase.icon;
             return (
               <div
                 key={useCase.title}
+                data-animate
+                data-delay={`${(index % 3) * 100}`}
                 className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#3DCBD2]/30 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-5">

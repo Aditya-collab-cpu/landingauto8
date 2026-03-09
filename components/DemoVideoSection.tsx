@@ -13,7 +13,7 @@ export default function DemoVideoSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Text */}
-          <div>
+          <div data-animate>
             <div className="inline-flex items-center gap-2 bg-[#3DCBD2]/10 border border-[#3DCBD2]/30 rounded-full px-4 py-1.5 mb-6">
               <Play className="w-4 h-4 text-[#3DCBD2]" fill="currentColor" />
               <span className="text-[#3DCBD2] text-sm font-medium">
@@ -52,7 +52,7 @@ export default function DemoVideoSection() {
           </div>
 
           {/* Right: Video */}
-          <div className="relative">
+          <div className="relative" data-animate data-delay="150">
             <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-2xl shadow-gray-200/80 bg-[#0d1424]">
               {/* Video placeholder */}
               <div className="aspect-video relative flex items-center justify-center bg-gradient-to-br from-[#0d1424] to-[#080d1a]">

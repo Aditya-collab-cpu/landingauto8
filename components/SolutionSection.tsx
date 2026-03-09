@@ -7,7 +7,6 @@ const steps = [
     title: "Lead Submits Form",
     description:
       "A potential customer fills out your web form, WhatsApp, or any contact channel with their name, email, phone, and company.",
-    color: "from-blue-500/20 to-blue-600/10",
     border: "border-blue-500/30",
     iconColor: "text-blue-400",
     iconBg: "bg-blue-500/10",
@@ -18,7 +17,6 @@ const steps = [
     title: "AI Generates Personalized Email",
     description:
       "moreleadz's AI instantly creates a tailored, professional email based on the lead's details, industry, and context — no templates needed.",
-    color: "from-[#3DCBD2]/20 to-[#3DCBD2]/10",
     border: "border-[#3DCBD2]/30",
     iconColor: "text-[#3DCBD2]",
     iconBg: "bg-[#3DCBD2]/10",
@@ -29,7 +27,6 @@ const steps = [
     title: "Email Sent Instantly",
     description:
       "The personalized email is dispatched to the lead within seconds of submission — before they've even left your website.",
-    color: "from-purple-500/20 to-purple-600/10",
     border: "border-purple-500/30",
     iconColor: "text-purple-400",
     iconBg: "bg-purple-500/10",
@@ -40,7 +37,6 @@ const steps = [
     title: "Lead Saved and Tracked",
     description:
       "Every lead is stored with full details, duplicate-checked, and synced to your Google Sheets or CRM automatically — nothing lost.",
-    color: "from-emerald-500/20 to-emerald-600/10",
     border: "border-emerald-500/30",
     iconColor: "text-emerald-400",
     iconBg: "bg-emerald-500/10",
@@ -57,7 +53,7 @@ export default function SolutionSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate>
           <div className="inline-flex items-center gap-2 bg-[#3DCBD2]/10 border border-[#3DCBD2]/30 rounded-full px-4 py-1.5 mb-6">
             <Sparkles className="w-4 h-4 text-[#3DCBD2]" />
             <span className="text-[#3DCBD2] text-sm font-medium">
@@ -76,25 +72,18 @@ export default function SolutionSection() {
 
         {/* Steps */}
         <div className="relative">
-          {/* Connecting line (desktop) */}
+          {/* Connecting line — desktop only */}
           <div className="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-[#3DCBD2]/30 to-transparent" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.step} className="relative group">
-                  {/* Connector arrow (mobile/tablet) */}
-                  {index < steps.length - 1 && (
-                    <div className="lg:hidden flex justify-center my-4">
-                      <div className="w-px h-8 bg-gradient-to-b from-[#3DCBD2]/40 to-transparent" />
-                    </div>
-                  )}
-
+                <div key={step.step} data-animate data-delay={`${index * 100}`}>
+                  {/* Card */}
                   <div
-                    className={`glass-card rounded-2xl p-6 border ${step.border} card-hover h-full`}
+                    className={`glass-card rounded-2xl p-6 border ${step.border} card-hover`}
                   >
-                    {/* Step number */}
                     <div className="flex items-center justify-between mb-5">
                       <div
                         className={`w-11 h-11 rounded-xl ${step.iconBg} border ${step.border} flex items-center justify-center`}
@@ -108,7 +97,6 @@ export default function SolutionSection() {
                         {step.step}
                       </span>
                     </div>
-
                     <h3 className="text-lg font-semibold text-white mb-2">
                       {step.title}
                     </h3>
@@ -116,6 +104,13 @@ export default function SolutionSection() {
                       {step.description}
                     </p>
                   </div>
+
+                  {/* Connector arrow — mobile only, placed AFTER card */}
+                  {index < steps.length - 1 && (
+                    <div className="sm:hidden flex justify-center mt-3">
+                      <div className="w-px h-8 bg-gradient-to-b from-[#3DCBD2]/40 to-transparent" />
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -123,7 +118,7 @@ export default function SolutionSection() {
         </div>
 
         {/* Bottom callout */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center" data-animate data-delay="200">
           <div className="inline-flex items-center gap-3 glass-card border border-[#3DCBD2]/20 rounded-2xl px-6 py-4">
             <div className="w-2 h-2 rounded-full bg-[#3DCBD2] animate-pulse" />
             <span className="text-white/70 text-sm">

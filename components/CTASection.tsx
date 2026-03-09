@@ -18,7 +18,7 @@ export default function CTASection() {
         />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
         {/* Icon */}
         <div className="w-16 h-16 rounded-2xl bg-[#3DCBD2]/20 border border-[#3DCBD2]/40 flex items-center justify-center mx-auto mb-8 animate-pulse-glow">
           <Zap className="w-8 h-8 text-[#3DCBD2]" strokeWidth={2} />

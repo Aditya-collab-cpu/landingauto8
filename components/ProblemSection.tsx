@@ -32,7 +32,7 @@ export default function ProblemSection() {
     <section className="section-light py-24" id="problem">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate>
           <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
             <span className="text-red-600 text-sm font-medium">
@@ -50,11 +50,13 @@ export default function ProblemSection() {
 
         {/* Problem Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {problems.map((problem) => {
+          {problems.map((problem, index) => {
             const Icon = problem.icon;
             return (
               <div
                 key={problem.title}
+                data-animate
+                data-delay={`${index * 100}`}
                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-red-100 transition-all duration-300 group hover:-translate-y-1"
               >
                 <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mb-6 group-hover:bg-red-100 transition-colors">

@@ -57,7 +57,7 @@ export default function BenefitsSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate>
           <div className="inline-flex items-center gap-2 bg-[#3DCBD2]/10 border border-[#3DCBD2]/30 rounded-full px-4 py-1.5 mb-6">
             <TrendingUp className="w-4 h-4 text-[#3DCBD2]" />
             <span className="text-[#3DCBD2] text-sm font-medium">
@@ -76,11 +76,13 @@ export default function BenefitsSection() {
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {benefits.map((benefit) => {
+          {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div
                 key={benefit.label}
+                data-animate
+                data-delay={`${index * 100}`}
                 className={`glass-card rounded-2xl p-7 border ${benefit.border} card-hover group text-center`}
               >
                 <div
@@ -104,7 +106,7 @@ export default function BenefitsSection() {
         </div>
 
         {/* Bottom quote */}
-        <div className="mt-16 max-w-3xl mx-auto text-center">
+        <div className="mt-16 max-w-3xl mx-auto text-center" data-animate data-delay="150">
           <div className="glass-card rounded-2xl p-8 border border-white/10">
             <p className="text-white/80 text-lg italic leading-relaxed mb-4">
               "The speed of your initial response is the single biggest factor in

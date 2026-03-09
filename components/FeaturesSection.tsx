@@ -75,7 +75,7 @@ export default function FeaturesSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate>
           <div className="inline-flex items-center gap-2 bg-[#3DCBD2]/10 border border-[#3DCBD2]/30 rounded-full px-4 py-1.5 mb-6">
             <span className="text-[#3DCBD2] text-sm font-medium">
               Features
@@ -93,11 +93,13 @@ export default function FeaturesSection() {
 
         {/* Feature Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feature) => {
+          {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
+                data-animate
+                data-delay={`${(index % 3) * 100}`}
                 className={`glass-card rounded-2xl p-7 border ${feature.border} card-hover group`}
               >
                 <div
